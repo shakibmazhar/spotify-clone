@@ -9,10 +9,13 @@ import {Grid, Slider} from '@material-ui/core'
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay'
 import VolumeDownIcon from '@material-ui/icons/VolumeDown'
 import { useDataLayerValue } from '../DataLayer'
+import SpotifyPlayer from 'react-spotify-web-playback'
 
 const Footer = () => {
-    const [{ now_playing }, dispatch] = useDataLayerValue()
-
+    const [{ now_playing, token }, dispatch] = useDataLayerValue()
+    
+    //console.log(token)
+    
     return (
         <div className = 'footer'>
 
@@ -29,12 +32,26 @@ const Footer = () => {
 
             {/* Player Control */}
             <div className = 'footer-center'>
-                <ShuffleIcon className = 'footer-green'/>
-                <SkipPreviousIcon className = 'footer-icon'/>
-                <PlayCircleOutlineIcon fontSize = 'large' className = 'footer-icon'/>
-                <SkipNextIcon className = 'footer-icon'/>
-                <RepeatIcon className = 'footer-green' />
+                <ShuffleIcon 
+                className = 'footer-green'/>
+                <SkipPreviousIcon 
+                className = 'footer-icon'/>
+                <PlayCircleOutlineIcon 
+                fontSize = 'large' 
+                className = 'footer-icon'/>
+                <SkipNextIcon 
+                className = 'footer-icon'/>
+                <RepeatIcon 
+                className = 'footer-green' />
             </div>
+
+            {/* Player functionality for premium users */}
+            {/* <div className = 'footer-center'>
+               {now_playing && <SpotifyPlayer
+                token = {token}
+                uris = {now_playing.uri ? [now_playing.uri] : [] }
+                 />}
+            </div> */}
 
             {/* volume Control */}
             <div className = 'footer-right'>

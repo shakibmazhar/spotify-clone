@@ -11,7 +11,7 @@ export const spotify = new SpotifyWebApi();
 function App() {
 
   //Pull data from Data layer.
-  const [{token}, dispatch] = useDataLayerValue()
+  const [{token, user}, dispatch] = useDataLayerValue()
 
   useEffect(() => {
     const hash = getTokenFromUrl()
@@ -48,6 +48,7 @@ function App() {
       })     
     }
   })
+  
   
   return (
     <div className="App">
