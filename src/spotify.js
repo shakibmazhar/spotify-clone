@@ -1,13 +1,15 @@
+import clientid from './clientID'
+
 //Handle auth by Spotify
 export const authEndpoint = 'https://accounts.spotify.com/authorize'
 
 //Redirect to this app after auth
 
-const redirectUri = 'http://localhost:3000/'
+//const redirectUri = 'http://localhost:3000/'
 
-// const redirectUri = 'https://spotify-clone-93986.web.app/'
+const redirectUri = 'https://spotify-clone-93986.web.app/'
 
-const clientID = 'ba1cd27c880a4f65b002301b269cdbf8'
+const clientID = clientid
 
 //Permissions
 const scopes = [
@@ -18,6 +20,8 @@ const scopes = [
     "user-read-playback-state",
     "user-top-read",
     "user-read-private",
+    "playlist-read-collaborative",
+    "playlist-read-private",
     "user-modify-playback-state"
 ]
 
